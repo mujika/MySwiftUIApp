@@ -3,8 +3,7 @@ import AVFoundation
 
 struct RecordingListView: View {
     @ObservedObject var audioManager: AudioManager
-    @State private var playingRecording: Recording?
-    @State private var audioPlayer: AVAudioPlayer?
+    @StateObject private var audioPlayerManager = AudioPlayerManager()
     
     var body: some View {
         NavigationView {
@@ -31,9 +30,9 @@ struct RecordingListView: View {
                     ForEach(audioManager.recordings) { recording in
                         RecordingRowView(
                             recording: recording,
-                            isPlaying: playingRecording?.id == recording.id,
-                            onPlay: { playRecording(recording) },
-                            onStop: { stopPlayback() },
+                            isPlaying: audioPlayerManager.playingRecording?.id == recording.id,
+                            onPlay: { audioPlayerManager.playRecording(recording) },
+                            onStop: { audioPlayerManager.stopPlayback() },
                             onDelete: { audioManager.deleteRecording(recording) }
                         )
                     }
@@ -46,22 +45,6 @@ struct RecordingListView: View {
         }
     }
     
-    private func playRecording(_ recording: Recording) {
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: recording.url)
-            audioPlayer?.delegate = self
-            audioPlayer?.play()
-            playingRecording = recording
-        } catch {
-            print("再生に失敗: \(error)")
-        }
-    }
-    
-    private func stopPlayback() {
-        audioPlayer?.stop()
-        audioPlayer = nil
-        playingRecording = nil
-    }
 }
 
 struct RecordingRowView: View {
@@ -114,12 +97,6 @@ struct RecordingRowView: View {
     }
 }
 
-extension RecordingListView: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        playingRecording = nil
-        audioPlayer = nil
-    }
-}
 
 #Preview {
     RecordingListView(audioManager: AudioManager())

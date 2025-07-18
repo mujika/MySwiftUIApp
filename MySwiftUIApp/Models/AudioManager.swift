@@ -179,9 +179,11 @@ class AudioManager: NSObject, ObservableObject {
 }
 
 extension AudioManager: AVAudioRecorderDelegate {
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            loadRecordings()
+    nonisolated func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        Task { @MainActor in
+            if flag {
+                self.loadRecordings()
+            }
         }
     }
 }
