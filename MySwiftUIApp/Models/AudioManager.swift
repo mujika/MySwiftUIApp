@@ -34,7 +34,11 @@ class AudioManager: NSObject, ObservableObject {
     }
     
     func requestPermission() async {
-        let permission = await AVAudioSession.sharedInstance().requestRecordPermission()
+        let permission = await withCheckedContinuation { continuation in
+            AVAudioSession.sharedInstance().requestRecordPermission { granted in
+                continuation.resume(returning: granted)
+            }
+        }
         await MainActor.run {
             self.hasPermission = permission
         }
