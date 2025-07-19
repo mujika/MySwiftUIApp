@@ -20,13 +20,15 @@ class AudioManager: NSObject, ObservableObject {
     override init() {
         super.init()
         setupAudioSession()
+        setupNotifications()
         loadRecordings()
     }
     
     private func setupAudioSession() {
         do {
             let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
+            try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers, .duckOthers])
+            try session.setPrefersNoInterruptionsFromSystemAlerts(true)
             try session.setActive(true)
         } catch {
             print("オーディオセッションの設定に失敗: \(error)")
@@ -188,6 +190,60 @@ class AudioManager: NSObject, ObservableObject {
         } catch {
             print("録音ファイルの削除に失敗: \(error)")
         }
+    }
+    
+    private func setupNotifications() {
+        let nc = NotificationCenter.default
+        nc.addObserver(self,
+                      selector: #selector(handleInterruption),
+                      name: AVAudioSession.interruptionNotification,
+                      object: AVAudioSession.sharedInstance())
+    }
+    
+    @objc private func handleInterruption(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+              let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
+            return
+        }
+        
+        Task { @MainActor in
+            switch type {
+            case .began:
+                print("オーディオセッションが中断されました")
+                
+            case .ended:
+                guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else { return }
+                let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
+                
+                if options.contains(.shouldResume) && self.isRecording {
+                    do {
+                        let session = AVAudioSession.sharedInstance()
+                        try session.setActive(true)
+                        
+                        if let recorder = self.audioRecorder, !recorder.isRecording {
+                            recorder.record()
+                            print("録音を再開しました")
+                        }
+                        
+                        if !self.audioEngine.isRunning {
+                            try self.audioEngine.start()
+                            self.isPlaying = true
+                            print("オーディオエンジンを再開しました")
+                        }
+                    } catch {
+                        print("録音再開に失敗: \(error)")
+                    }
+                }
+                
+            @unknown default:
+                break
+            }
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
