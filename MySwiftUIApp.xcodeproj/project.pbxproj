@@ -11,6 +11,11 @@
 		A1B2C3D4E5F67892 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F67893 /* ContentView.swift */; };
 		A1B2C3D4E5F67894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F67895 /* Assets.xcassets */; };
 		A1B2C3D4E5F67896 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F67897 /* Preview Assets.xcassets */; };
+		A1B2C3D4E5F678A8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678A9 /* AudioManager.swift */; };
+		A1B2C3D4E5F678AA /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678AB /* Recording.swift */; };
+		A1B2C3D4E5F678AC /* RecordingControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678AD /* RecordingControlsView.swift */; };
+		A1B2C3D4E5F678AE /* AudioVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678AF /* AudioVisualizerView.swift */; };
+		A1B2C3D4E5F678B0 /* RecordingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B1 /* RecordingListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		A1B2C3D4E5F67893 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F67895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B2C3D4E5F67897 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A1B2C3D4E5F678A9 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F678AB /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F678AD /* RecordingControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingControlsView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F678AF /* AudioVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVisualizerView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F678B1 /* RecordingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,8 @@
 			children = (
 				A1B2C3D4E5F67891 /* MySwiftUIAppApp.swift */,
 				A1B2C3D4E5F67893 /* ContentView.swift */,
+				A1B2C3D4E5F678B2 /* Models */,
+				A1B2C3D4E5F678B3 /* Views */,
 				A1B2C3D4E5F67895 /* Assets.xcassets */,
 				A1B2C3D4E5F6789D /* Preview Content */,
 			);
@@ -65,6 +77,25 @@
 				A1B2C3D4E5F67897 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F678B2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F678A9 /* AudioManager.swift */,
+				A1B2C3D4E5F678AB /* Recording.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F678B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F678AD /* RecordingControlsView.swift */,
+				A1B2C3D4E5F678AF /* AudioVisualizerView.swift */,
+				A1B2C3D4E5F678B1 /* RecordingListView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +170,11 @@
 			files = (
 				A1B2C3D4E5F67892 /* ContentView.swift in Sources */,
 				A1B2C3D4E5F67890 /* MySwiftUIAppApp.swift in Sources */,
+				A1B2C3D4E5F678A8 /* AudioManager.swift in Sources */,
+				A1B2C3D4E5F678AA /* Recording.swift in Sources */,
+				A1B2C3D4E5F678AC /* RecordingControlsView.swift in Sources */,
+				A1B2C3D4E5F678AE /* AudioVisualizerView.swift in Sources */,
+				A1B2C3D4E5F678B0 /* RecordingListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +310,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MySwiftUIApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "録音機能のためにマイクへのアクセスが必要です";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,6 +339,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MySwiftUIApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "録音機能のためにマイクへのアクセスが必要です";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
