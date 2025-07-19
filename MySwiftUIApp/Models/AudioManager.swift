@@ -26,7 +26,7 @@ class AudioManager: NSObject, ObservableObject {
     private func setupAudioSession() {
         do {
             let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth])
+            try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
             try session.setActive(true)
         } catch {
             print("オーディオセッションの設定に失敗: \(error)")
@@ -58,6 +58,9 @@ class AudioManager: NSObject, ObservableObject {
         ]
         
         do {
+            let session = AVAudioSession.sharedInstance()
+            try session.setActive(true)
+            
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder?.delegate = self
             audioRecorder?.isMeteringEnabled = true
@@ -121,6 +124,12 @@ class AudioManager: NSObject, ObservableObject {
         
         stopTimers()
         loadRecordings()
+        
+        do {
+            try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("オーディオセッション非アクティブ化に失敗: \(error)")
+        }
     }
     
     private func startTimers() {
