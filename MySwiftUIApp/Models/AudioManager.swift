@@ -21,13 +21,14 @@ class AudioManager: NSObject, ObservableObject {
         super.init()
         setupAudioSession()
         setupNotifications()
+        startContinuousAudioEngine()
         loadRecordings()
     }
     
     private func setupAudioSession() {
         do {
             let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers, .duckOthers])
+            try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
             try session.setPrefersNoInterruptionsFromSystemAlerts(true)
             try session.setActive(true)
         } catch {
@@ -117,21 +118,15 @@ class AudioManager: NSObject, ObservableObject {
     
     func stopRecording() {
         audioRecorder?.stop()
-        audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
         
         isRecording = false
-        isPlaying = false
         audioLevel = 0.0
         
         stopTimers()
         loadRecordings()
         
-        do {
-            try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
-        } catch {
-            print("オーディオセッション非アクティブ化に失敗: \(error)")
-        }
+        // AVAudioSessionも他のアプリとの混合のためアクティブのまま維持
     }
     
     private func startTimers() {
@@ -216,12 +211,12 @@ class AudioManager: NSObject, ObservableObject {
                 guard let optionsValue = userInfo[AVAudioSessionInterruptionOptionKey] as? UInt else { return }
                 let options = AVAudioSession.InterruptionOptions(rawValue: optionsValue)
                 
-                if options.contains(.shouldResume) && self.isRecording {
+                if options.contains(.shouldResume) {
                     do {
                         let session = AVAudioSession.sharedInstance()
                         try session.setActive(true)
                         
-                        if let recorder = self.audioRecorder, !recorder.isRecording {
+                        if self.isRecording, let recorder = self.audioRecorder, !recorder.isRecording {
                             recorder.record()
                             print("録音を再開しました")
                         }
@@ -229,10 +224,10 @@ class AudioManager: NSObject, ObservableObject {
                         if !self.audioEngine.isRunning {
                             try self.audioEngine.start()
                             self.isPlaying = true
-                            print("オーディオエンジンを再開しました")
+                            print("継続的なオーディオエンジンを再開しました")
                         }
                     } catch {
-                        print("録音再開に失敗: \(error)")
+                        print("オーディオ再開に失敗: \(error)")
                     }
                 }
                 
@@ -242,8 +237,28 @@ class AudioManager: NSObject, ObservableObject {
         }
     }
     
+    private func startContinuousAudioEngine() {
+        do {
+            inputNode = audioEngine.inputNode
+            let outputNode = audioEngine.outputNode
+            let format = inputNode?.outputFormat(forBus: 0)
+            
+            if let inputNode = inputNode, let format = format {
+                audioEngine.connect(inputNode, to: outputNode, format: format)
+            }
+            
+            try audioEngine.start()
+            isPlaying = true
+            print("継続的なオーディオエンジンを開始しました")
+            
+        } catch {
+            print("継続的なオーディオエンジンの開始に失敗: \(error)")
+        }
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
+        audioEngine.stop()
     }
 }
 
