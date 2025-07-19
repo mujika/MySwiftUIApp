@@ -16,6 +16,8 @@
 		A1B2C3D4E5F678AC /* RecordingControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678AD /* RecordingControlsView.swift */; };
 		A1B2C3D4E5F678AE /* AudioVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678AF /* AudioVisualizerView.swift */; };
 		A1B2C3D4E5F678B0 /* RecordingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B1 /* RecordingListView.swift */; };
+		A1B2C3D4E5F678B6 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B4 /* AudioPlayerManager.swift */; };
+		A1B2C3D4E5F678B7 /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B5 /* ShareManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		A1B2C3D4E5F67897 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A1B2C3D4E5F678A9 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F678AB /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F678B4 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F678B5 /* ShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F678AD /* RecordingControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingControlsView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F678AF /* AudioVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVisualizerView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F678B1 /* RecordingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListView.swift; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 				A1B2C3D4E5F67893 /* ContentView.swift */,
 				A1B2C3D4E5F678B2 /* Models */,
 				A1B2C3D4E5F678B3 /* Views */,
+				A1B2C3D4E5F678B8 /* Utils */,
 				A1B2C3D4E5F67895 /* Assets.xcassets */,
 				A1B2C3D4E5F6789D /* Preview Content */,
 			);
@@ -84,6 +89,7 @@
 			children = (
 				A1B2C3D4E5F678A9 /* AudioManager.swift */,
 				A1B2C3D4E5F678AB /* Recording.swift */,
+				A1B2C3D4E5F678B4 /* AudioPlayerManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,6 +102,14 @@
 				A1B2C3D4E5F678B1 /* RecordingListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F678B8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F678B5 /* ShareManager.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +189,8 @@
 				A1B2C3D4E5F678AC /* RecordingControlsView.swift in Sources */,
 				A1B2C3D4E5F678AE /* AudioVisualizerView.swift in Sources */,
 				A1B2C3D4E5F678B0 /* RecordingListView.swift in Sources */,
+				A1B2C3D4E5F678B6 /* AudioPlayerManager.swift in Sources */,
+				A1B2C3D4E5F678B7 /* ShareManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
