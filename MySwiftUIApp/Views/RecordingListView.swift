@@ -4,6 +4,7 @@ import AVFoundation
 struct RecordingListView: View {
     @ObservedObject var audioManager: AudioManager
     @StateObject private var audioPlayerManager = AudioPlayerManager()
+    @StateObject private var shareManager = ShareManager()
     
     var body: some View {
         NavigationView {
@@ -33,7 +34,8 @@ struct RecordingListView: View {
                             isPlaying: audioPlayerManager.playingRecording?.id == recording.id,
                             onPlay: { audioPlayerManager.playRecording(recording) },
                             onStop: { audioPlayerManager.stopPlayback() },
-                            onDelete: { audioManager.deleteRecording(recording) }
+                            onDelete: { audioManager.deleteRecording(recording) },
+                            onShare: { shareManager.shareRecording(recording) }
                         )
                     }
                 }
@@ -41,6 +43,9 @@ struct RecordingListView: View {
             .navigationTitle("録音一覧")
             .navigationBarTitleDisplayMode(.large)
             .refreshable {
+            }
+            .sheet(isPresented: $shareManager.isShowingShareSheet) {
+                ShareSheet(items: shareManager.shareItems)
             }
         }
     }
@@ -53,6 +58,7 @@ struct RecordingRowView: View {
     let onPlay: () -> Void
     let onStop: () -> Void
     let onDelete: () -> Void
+    let onShare: () -> Void
     
     var body: some View {
         HStack {
@@ -70,6 +76,13 @@ struct RecordingRowView: View {
             Button(action: isPlaying ? onStop : onPlay) {
                 Image(systemName: isPlaying ? "stop.circle.fill" : "play.circle.fill")
                     .font(.title2)
+                    .foregroundColor(.blue)
+            }
+            .buttonStyle(PlainButtonStyle())
+            
+            Button(action: onShare) {
+                Image(systemName: "square.and.arrow.up")
+                    .font(.title3)
                     .foregroundColor(.blue)
             }
             .buttonStyle(PlainButtonStyle())
