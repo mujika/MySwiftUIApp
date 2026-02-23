@@ -11,13 +11,26 @@
 		A1B2C3D4E5F67892 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F67893 /* ContentView.swift */; };
 		A1B2C3D4E5F67894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F67895 /* Assets.xcassets */; };
 		A1B2C3D4E5F67896 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F67897 /* Preview Assets.xcassets */; };
-		A1B2C3D4E5F678A8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678A9 /* AudioManager.swift */; };
-		A1B2C3D4E5F678AA /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678AB /* Recording.swift */; };
-		A1B2C3D4E5F678AC /* RecordingControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678AD /* RecordingControlsView.swift */; };
-		A1B2C3D4E5F678AE /* AudioVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678AF /* AudioVisualizerView.swift */; };
-		A1B2C3D4E5F678B0 /* RecordingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B1 /* RecordingListView.swift */; };
-		A1B2C3D4E5F678B6 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B4 /* AudioPlayerManager.swift */; };
-		A1B2C3D4E5F678B7 /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B5 /* ShareManager.swift */; };
+		B100000000000001 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000002 /* Theme.swift */; };
+		B100000000000003 /* MoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000004 /* MoodEntry.swift */; };
+		B100000000000005 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000006 /* Habit.swift */; };
+		B100000000000007 /* FocusSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000008 /* FocusSession.swift */; };
+		B100000000000009 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000A /* DataStore.swift */; };
+		B10000000000000B /* BreathViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000C /* BreathViewModel.swift */; };
+		B10000000000000D /* FocusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000E /* FocusViewModel.swift */; };
+		B10000000000000F /* MoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000010 /* MoodViewModel.swift */; };
+		B100000000000011 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000012 /* HabitViewModel.swift */; };
+		B100000000000013 /* BreatheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000014 /* BreatheView.swift */; };
+		B100000000000015 /* FocusTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000016 /* FocusTimerView.swift */; };
+		B100000000000017 /* MoodJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000018 /* MoodJournalView.swift */; };
+		B100000000000019 /* HabitTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000001A /* HabitTrackerView.swift */; };
+		B10000000000001B /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000001C /* InsightsView.swift */; };
+		B10000000000001D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000001E /* OnboardingView.swift */; };
+		B10000000000001F /* ParticleSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000020 /* ParticleSystem.swift */; };
+		B100000000000021 /* AnimatedRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000022 /* AnimatedRing.swift */; };
+		B100000000000023 /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000024 /* GlassCard.swift */; };
+		B100000000000025 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000026 /* GradientBackground.swift */; };
+		B100000000000027 /* FloatingOrb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000028 /* FloatingOrb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,13 +39,26 @@
 		A1B2C3D4E5F67893 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F67895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B2C3D4E5F67897 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A1B2C3D4E5F678A9 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F678AB /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F678B4 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F678B5 /* ShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F678AD /* RecordingControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingControlsView.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F678AF /* AudioVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVisualizerView.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F678B1 /* RecordingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListView.swift; sourceTree = "<group>"; };
+		B100000000000002 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B100000000000004 /* MoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntry.swift; sourceTree = "<group>"; };
+		B100000000000006 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		B100000000000008 /* FocusSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSession.swift; sourceTree = "<group>"; };
+		B10000000000000A /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		B10000000000000C /* BreathViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathViewModel.swift; sourceTree = "<group>"; };
+		B10000000000000E /* FocusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusViewModel.swift; sourceTree = "<group>"; };
+		B100000000000010 /* MoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewModel.swift; sourceTree = "<group>"; };
+		B100000000000012 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
+		B100000000000014 /* BreatheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheView.swift; sourceTree = "<group>"; };
+		B100000000000016 /* FocusTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimerView.swift; sourceTree = "<group>"; };
+		B100000000000018 /* MoodJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodJournalView.swift; sourceTree = "<group>"; };
+		B10000000000001A /* HabitTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerView.swift; sourceTree = "<group>"; };
+		B10000000000001C /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
+		B10000000000001E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B100000000000020 /* ParticleSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleSystem.swift; sourceTree = "<group>"; };
+		B100000000000022 /* AnimatedRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedRing.swift; sourceTree = "<group>"; };
+		B100000000000024 /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassCard.swift; sourceTree = "<group>"; };
+		B100000000000026 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
+		B100000000000028 /* FloatingOrb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingOrb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +85,11 @@
 			children = (
 				A1B2C3D4E5F67891 /* MySwiftUIAppApp.swift */,
 				A1B2C3D4E5F67893 /* ContentView.swift */,
-				A1B2C3D4E5F678B2 /* Models */,
-				A1B2C3D4E5F678B3 /* Views */,
-				A1B2C3D4E5F678B8 /* Utils */,
+				B100000000000030 /* Theme */,
+				B100000000000031 /* Models */,
+				B100000000000032 /* ViewModels */,
+				B100000000000033 /* Views */,
+				B100000000000034 /* Components */,
 				A1B2C3D4E5F67895 /* Assets.xcassets */,
 				A1B2C3D4E5F6789D /* Preview Content */,
 			);
@@ -84,32 +112,59 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		A1B2C3D4E5F678B2 /* Models */ = {
+		B100000000000030 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F678A9 /* AudioManager.swift */,
-				A1B2C3D4E5F678AB /* Recording.swift */,
-				A1B2C3D4E5F678B4 /* AudioPlayerManager.swift */,
+				B100000000000002 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		B100000000000031 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000004 /* MoodEntry.swift */,
+				B100000000000006 /* Habit.swift */,
+				B100000000000008 /* FocusSession.swift */,
+				B10000000000000A /* DataStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A1B2C3D4E5F678B3 /* Views */ = {
+		B100000000000032 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F678AD /* RecordingControlsView.swift */,
-				A1B2C3D4E5F678AF /* AudioVisualizerView.swift */,
-				A1B2C3D4E5F678B1 /* RecordingListView.swift */,
+				B10000000000000C /* BreathViewModel.swift */,
+				B10000000000000E /* FocusViewModel.swift */,
+				B100000000000010 /* MoodViewModel.swift */,
+				B100000000000012 /* HabitViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B100000000000033 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000001E /* OnboardingView.swift */,
+				B100000000000014 /* BreatheView.swift */,
+				B100000000000016 /* FocusTimerView.swift */,
+				B100000000000018 /* MoodJournalView.swift */,
+				B10000000000001A /* HabitTrackerView.swift */,
+				B10000000000001C /* InsightsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A1B2C3D4E5F678B8 /* Utils */ = {
+		B100000000000034 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F678B5 /* ShareManager.swift */,
+				B100000000000020 /* ParticleSystem.swift */,
+				B100000000000022 /* AnimatedRing.swift */,
+				B100000000000024 /* GlassCard.swift */,
+				B100000000000026 /* GradientBackground.swift */,
+				B100000000000028 /* FloatingOrb.swift */,
 			);
-			path = Utils;
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,13 +239,26 @@
 			files = (
 				A1B2C3D4E5F67892 /* ContentView.swift in Sources */,
 				A1B2C3D4E5F67890 /* MySwiftUIAppApp.swift in Sources */,
-				A1B2C3D4E5F678A8 /* AudioManager.swift in Sources */,
-				A1B2C3D4E5F678AA /* Recording.swift in Sources */,
-				A1B2C3D4E5F678AC /* RecordingControlsView.swift in Sources */,
-				A1B2C3D4E5F678AE /* AudioVisualizerView.swift in Sources */,
-				A1B2C3D4E5F678B0 /* RecordingListView.swift in Sources */,
-				A1B2C3D4E5F678B6 /* AudioPlayerManager.swift in Sources */,
-				A1B2C3D4E5F678B7 /* ShareManager.swift in Sources */,
+				B100000000000001 /* Theme.swift in Sources */,
+				B100000000000003 /* MoodEntry.swift in Sources */,
+				B100000000000005 /* Habit.swift in Sources */,
+				B100000000000007 /* FocusSession.swift in Sources */,
+				B100000000000009 /* DataStore.swift in Sources */,
+				B10000000000000B /* BreathViewModel.swift in Sources */,
+				B10000000000000D /* FocusViewModel.swift in Sources */,
+				B10000000000000F /* MoodViewModel.swift in Sources */,
+				B100000000000011 /* HabitViewModel.swift in Sources */,
+				B100000000000013 /* BreatheView.swift in Sources */,
+				B100000000000015 /* FocusTimerView.swift in Sources */,
+				B100000000000017 /* MoodJournalView.swift in Sources */,
+				B100000000000019 /* HabitTrackerView.swift in Sources */,
+				B10000000000001B /* InsightsView.swift in Sources */,
+				B10000000000001D /* OnboardingView.swift in Sources */,
+				B10000000000001F /* ParticleSystem.swift in Sources */,
+				B100000000000021 /* AnimatedRing.swift in Sources */,
+				B100000000000023 /* GlassCard.swift in Sources */,
+				B100000000000025 /* GradientBackground.swift in Sources */,
+				B100000000000027 /* FloatingOrb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,19 +394,19 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MySwiftUIApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "録音機能のためにマイクへのアクセスが必要です";
-				INFOPLIST_KEY_UIBackgroundModes = audio;
+				INFOPLIST_KEY_CFBundleDisplayName = Lumina;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.MySwiftUIApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumina.wellness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -356,19 +424,19 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MySwiftUIApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "録音機能のためにマイクへのアクセスが必要です";
-				INFOPLIST_KEY_UIBackgroundModes = audio;
+				INFOPLIST_KEY_CFBundleDisplayName = Lumina;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.MySwiftUIApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumina.wellness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
