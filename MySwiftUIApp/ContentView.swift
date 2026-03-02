@@ -1,73 +1,40 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var audioManager = AudioManager()
-    @State private var selectedTab = 0
-    
+    @State private var recorderVM: RecorderViewModel
+    @State private var listVM: RecordingListViewModel
+
+    init(
+        recorder: AudioRecorderService,
+        levelMonitor: AudioLevelMonitor,
+        player: AudioPlayerService,
+        repository: RecordingRepository
+    ) {
+        _recorderVM = State(initialValue: RecorderViewModel(
+            recorder: recorder,
+            levelMonitor: levelMonitor,
+            repository: repository
+        ))
+        _listVM = State(initialValue: RecordingListViewModel(
+            repository: repository,
+            player: player
+        ))
+    }
+
     var body: some View {
-        TabView(selection: $selectedTab) {
-            VStack(spacing: 0) {
-                VStack(spacing: 8) {
-                    Text("録音アプリ")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    
-                    if audioManager.isRecording && audioManager.isPlaying {
-                        HStack(spacing: 8) {
-                            Image(systemName: "dot.radiowaves.left.and.right")
-                                .foregroundColor(.red)
-                            Text("リアルタイム出力中")
-                                .font(.caption)
-                                .foregroundColor(.red)
-                        }
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 4)
-                        .background(Color.red.opacity(0.1))
-                        .cornerRadius(12)
-                    }
-                }
-                .padding(.top, 20)
-                .padding(.bottom, 40)
-                
-                Spacer()
-                
-                RecordingControlsView(audioManager: audioManager)
-                
-                Spacer()
-                
-                if !audioManager.recordings.isEmpty {
-                    VStack(spacing: 8) {
-                        Text("\(audioManager.recordings.count)件の録音")
-                            .font(.headline)
-                        
-                        Button("録音一覧を見る") {
-                            selectedTab = 1
-                        }
-                        .font(.subheadline)
-                        .foregroundColor(.blue)
-                    }
-                    .padding(.bottom, 40)
-                }
+        TabView {
+            Tab("録音", systemImage: "mic.fill") {
+                RecorderView(viewModel: recorderVM)
             }
-            .tabItem {
-                Image(systemName: "mic.circle.fill")
-                Text("録音")
+
+            Tab("録音一覧", systemImage: "list.bullet") {
+                RecordingListView(viewModel: listVM)
             }
-            .tag(0)
-            
-            RecordingListView(audioManager: audioManager)
-                .tabItem {
-                    Image(systemName: "list.bullet")
-                    Text("一覧")
-                }
-                .tag(1)
         }
-        .task {
-            await audioManager.requestPermission()
+        .onChange(of: recorderVM.isRecording) { _, isRecording in
+            if !isRecording {
+                listVM.loadRecordings()
+            }
         }
     }
-}
-
-#Preview {
-    ContentView()
 }
