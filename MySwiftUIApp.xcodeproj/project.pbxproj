@@ -18,6 +18,42 @@
 		A1B2C3D4E5F678B0 /* RecordingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B1 /* RecordingListView.swift */; };
 		A1B2C3D4E5F678B6 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B4 /* AudioPlayerManager.swift */; };
 		A1B2C3D4E5F678B7 /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F678B5 /* ShareManager.swift */; };
+		D1E2F3A4B5C6D7E8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2F3A4B5C6D7E9 /* Theme.swift */; };
+		D1E2F3A4B5C6D7EA /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2F3A4B5C6D7EB /* Components.swift */; };
+		E1F2A3B4C5D6E7F0 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2A3B4C5D6E7F1 /* Preset.swift */; };
+		E1F2A3B4C5D6E7F2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2A3B4C5D6E7F3 /* AppState.swift */; };
+		E1F2A3B4C5D6E7F4 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2A3B4C5D6E7F5 /* Playlist.swift */; };
+		F0A1B2C3D4E5F601 /* EffectsChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F602 /* EffectsChain.swift */; };
+		F0A1B2C3D4E5F603 /* EQEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F604 /* EQEffect.swift */; };
+		F0A1B2C3D4E5F605 /* ReverbEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F606 /* ReverbEffect.swift */; };
+		F0A1B2C3D4E5F607 /* DelayEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F608 /* DelayEffect.swift */; };
+		F0A1B2C3D4E5F609 /* CompressorEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60A /* CompressorEffect.swift */; };
+		F0A1B2C3D4E5F60B /* DistortionEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60C /* DistortionEffect.swift */; };
+		F0A1B2C3D4E5F60D /* NoiseGateEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F60E /* NoiseGateEffect.swift */; };
+		F0A1B2C3D4E5F60F /* Tuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F610 /* Tuner.swift */; };
+		F0A1B2C3D4E5F611 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F612 /* Metronome.swift */; };
+		F0A1B2C3D4E5F613 /* LoopRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F614 /* LoopRecorder.swift */; };
+		F0A1B2C3D4E5F615 /* MultiTrackEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F616 /* MultiTrackEngine.swift */; };
+		F0A1B2C3D4E5F617 /* AudioExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F618 /* AudioExporter.swift */; };
+		F0A1B2C3D4E5F619 /* AudioEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A1B2C3D4E5F61A /* AudioEditor.swift */; };
+		B1C2D3E4F5A67801 /* NowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A67802 /* NowPlayingView.swift */; };
+		B1C2D3E4F5A67803 /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A67804 /* MiniPlayerView.swift */; };
+		B1C2D3E4F5A67805 /* WaveformScrubberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A67806 /* WaveformScrubberView.swift */; };
+		C0D1E2F3A4B5C601 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C602 /* ToolsView.swift */; };
+		C0D1E2F3A4B5C603 /* TunerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C604 /* TunerView.swift */; };
+		C0D1E2F3A4B5C605 /* MetronomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C606 /* MetronomeView.swift */; };
+		C0D1E2F3A4B5C607 /* EffectsChainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C608 /* EffectsChainView.swift */; };
+		C0D1E2F3A4B5C609 /* EQControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C60A /* EQControlView.swift */; };
+		C0D1E2F3A4B5C60B /* ReverbControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C60C /* ReverbControlView.swift */; };
+		C0D1E2F3A4B5C60D /* DelayControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C60E /* DelayControlView.swift */; };
+		C0D1E2F3A4B5C60F /* CompressorControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C610 /* CompressorControlView.swift */; };
+		C0D1E2F3A4B5C611 /* DistortionControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C612 /* DistortionControlView.swift */; };
+		C0D1E2F3A4B5C613 /* NoiseGateControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C614 /* NoiseGateControlView.swift */; };
+		C0D1E2F3A4B5C615 /* PresetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D1E2F3A4B5C616 /* PresetListView.swift */; };
+		C1D2E3F4A5B67801 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B67802 /* HomeView.swift */; };
+		C1D2E3F4A5B67803 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B67804 /* LibraryView.swift */; };
+		C1D2E3F4A5B67805 /* PlaylistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B67806 /* PlaylistDetailView.swift */; };
+		C1D2E3F4A5B67807 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B67808 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +69,42 @@
 		A1B2C3D4E5F678B1 /* RecordingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingListView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F678B4 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F678B5 /* ShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
+		D1E2F3A4B5C6D7E9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		D1E2F3A4B5C6D7EB /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		E1F2A3B4C5D6E7F1 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
+		E1F2A3B4C5D6E7F3 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		E1F2A3B4C5D6E7F5 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F602 /* EffectsChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsChain.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F604 /* EQEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQEffect.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F606 /* ReverbEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbEffect.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F608 /* DelayEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayEffect.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F60A /* CompressorEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressorEffect.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F60C /* DistortionEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionEffect.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F60E /* NoiseGateEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoiseGateEffect.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F610 /* Tuner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuner.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F612 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F614 /* LoopRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopRecorder.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F616 /* MultiTrackEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTrackEngine.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F618 /* AudioExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioExporter.swift; sourceTree = "<group>"; };
+		F0A1B2C3D4E5F61A /* AudioEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEditor.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5A67802 /* NowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingView.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5A67804 /* MiniPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5A67806 /* WaveformScrubberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformScrubberView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C602 /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C604 /* TunerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C606 /* MetronomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C608 /* EffectsChainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsChainView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C60A /* EQControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQControlView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C60C /* ReverbControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbControlView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C60E /* DelayControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayControlView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C610 /* CompressorControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressorControlView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C612 /* DistortionControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionControlView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C614 /* NoiseGateControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoiseGateControlView.swift; sourceTree = "<group>"; };
+		C0D1E2F3A4B5C616 /* PresetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetListView.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B67802 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B67804 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B67806 /* PlaylistDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetailView.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B67808 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +131,8 @@
 			children = (
 				A1B2C3D4E5F67891 /* MySwiftUIAppApp.swift */,
 				A1B2C3D4E5F67893 /* ContentView.swift */,
+				F0A1B2C3D4E5F620 /* Audio */,
+				D1E2F3A4B5C6D7EC /* Design */,
 				A1B2C3D4E5F678B2 /* Models */,
 				A1B2C3D4E5F678B3 /* Views */,
 				A1B2C3D4E5F678B8 /* Utils */,
@@ -90,6 +164,9 @@
 				A1B2C3D4E5F678A9 /* AudioManager.swift */,
 				A1B2C3D4E5F678AB /* Recording.swift */,
 				A1B2C3D4E5F678B4 /* AudioPlayerManager.swift */,
+				E1F2A3B4C5D6E7F1 /* Preset.swift */,
+				E1F2A3B4C5D6E7F3 /* AppState.swift */,
+				E1F2A3B4C5D6E7F5 /* Playlist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -97,11 +174,77 @@
 		A1B2C3D4E5F678B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C1D2E3F4A5B67810 /* Home */,
+				C1D2E3F4A5B67811 /* Library */,
+				C1D2E3F4A5B67812 /* Settings */,
+				B1C2D3E4F5A67807 /* Player */,
+				C0D1E2F3A4B5C620 /* Tools */,
+				C0D1E2F3A4B5C621 /* Effects */,
 				A1B2C3D4E5F678AD /* RecordingControlsView.swift */,
 				A1B2C3D4E5F678AF /* AudioVisualizerView.swift */,
 				A1B2C3D4E5F678B1 /* RecordingListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C0D1E2F3A4B5C620 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				C0D1E2F3A4B5C602 /* ToolsView.swift */,
+				C0D1E2F3A4B5C604 /* TunerView.swift */,
+				C0D1E2F3A4B5C606 /* MetronomeView.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		C0D1E2F3A4B5C621 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				C0D1E2F3A4B5C608 /* EffectsChainView.swift */,
+				C0D1E2F3A4B5C60A /* EQControlView.swift */,
+				C0D1E2F3A4B5C60C /* ReverbControlView.swift */,
+				C0D1E2F3A4B5C60E /* DelayControlView.swift */,
+				C0D1E2F3A4B5C610 /* CompressorControlView.swift */,
+				C0D1E2F3A4B5C612 /* DistortionControlView.swift */,
+				C0D1E2F3A4B5C614 /* NoiseGateControlView.swift */,
+				C0D1E2F3A4B5C616 /* PresetListView.swift */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
+		B1C2D3E4F5A67807 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				B1C2D3E4F5A67802 /* NowPlayingView.swift */,
+				B1C2D3E4F5A67804 /* MiniPlayerView.swift */,
+				B1C2D3E4F5A67806 /* WaveformScrubberView.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		C1D2E3F4A5B67810 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C1D2E3F4A5B67802 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C1D2E3F4A5B67811 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C1D2E3F4A5B67804 /* LibraryView.swift */,
+				C1D2E3F4A5B67806 /* PlaylistDetailView.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		C1D2E3F4A5B67812 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C1D2E3F4A5B67808 /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		A1B2C3D4E5F678B8 /* Utils */ = {
@@ -110,6 +253,43 @@
 				A1B2C3D4E5F678B5 /* ShareManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D1E2F3A4B5C6D7EC /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				D1E2F3A4B5C6D7E9 /* Theme.swift */,
+				D1E2F3A4B5C6D7EB /* Components.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		F0A1B2C3D4E5F620 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				F0A1B2C3D4E5F602 /* EffectsChain.swift */,
+				F0A1B2C3D4E5F610 /* Tuner.swift */,
+				F0A1B2C3D4E5F612 /* Metronome.swift */,
+				F0A1B2C3D4E5F614 /* LoopRecorder.swift */,
+				F0A1B2C3D4E5F616 /* MultiTrackEngine.swift */,
+				F0A1B2C3D4E5F618 /* AudioExporter.swift */,
+				F0A1B2C3D4E5F61A /* AudioEditor.swift */,
+				F0A1B2C3D4E5F621 /* Effects */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		F0A1B2C3D4E5F621 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				F0A1B2C3D4E5F604 /* EQEffect.swift */,
+				F0A1B2C3D4E5F606 /* ReverbEffect.swift */,
+				F0A1B2C3D4E5F608 /* DelayEffect.swift */,
+				F0A1B2C3D4E5F60A /* CompressorEffect.swift */,
+				F0A1B2C3D4E5F60C /* DistortionEffect.swift */,
+				F0A1B2C3D4E5F60E /* NoiseGateEffect.swift */,
+			);
+			path = Effects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +371,42 @@
 				A1B2C3D4E5F678B0 /* RecordingListView.swift in Sources */,
 				A1B2C3D4E5F678B6 /* AudioPlayerManager.swift in Sources */,
 				A1B2C3D4E5F678B7 /* ShareManager.swift in Sources */,
+				D1E2F3A4B5C6D7E8 /* Theme.swift in Sources */,
+				D1E2F3A4B5C6D7EA /* Components.swift in Sources */,
+				E1F2A3B4C5D6E7F0 /* Preset.swift in Sources */,
+				E1F2A3B4C5D6E7F2 /* AppState.swift in Sources */,
+				E1F2A3B4C5D6E7F4 /* Playlist.swift in Sources */,
+				F0A1B2C3D4E5F601 /* EffectsChain.swift in Sources */,
+				F0A1B2C3D4E5F603 /* EQEffect.swift in Sources */,
+				F0A1B2C3D4E5F605 /* ReverbEffect.swift in Sources */,
+				F0A1B2C3D4E5F607 /* DelayEffect.swift in Sources */,
+				F0A1B2C3D4E5F609 /* CompressorEffect.swift in Sources */,
+				F0A1B2C3D4E5F60B /* DistortionEffect.swift in Sources */,
+				F0A1B2C3D4E5F60D /* NoiseGateEffect.swift in Sources */,
+				F0A1B2C3D4E5F60F /* Tuner.swift in Sources */,
+				F0A1B2C3D4E5F611 /* Metronome.swift in Sources */,
+				F0A1B2C3D4E5F613 /* LoopRecorder.swift in Sources */,
+				F0A1B2C3D4E5F615 /* MultiTrackEngine.swift in Sources */,
+				F0A1B2C3D4E5F617 /* AudioExporter.swift in Sources */,
+				F0A1B2C3D4E5F619 /* AudioEditor.swift in Sources */,
+				B1C2D3E4F5A67801 /* NowPlayingView.swift in Sources */,
+				B1C2D3E4F5A67803 /* MiniPlayerView.swift in Sources */,
+				B1C2D3E4F5A67805 /* WaveformScrubberView.swift in Sources */,
+				C0D1E2F3A4B5C601 /* ToolsView.swift in Sources */,
+				C0D1E2F3A4B5C603 /* TunerView.swift in Sources */,
+				C0D1E2F3A4B5C605 /* MetronomeView.swift in Sources */,
+				C0D1E2F3A4B5C607 /* EffectsChainView.swift in Sources */,
+				C0D1E2F3A4B5C609 /* EQControlView.swift in Sources */,
+				C0D1E2F3A4B5C60B /* ReverbControlView.swift in Sources */,
+				C0D1E2F3A4B5C60D /* DelayControlView.swift in Sources */,
+				C0D1E2F3A4B5C60F /* CompressorControlView.swift in Sources */,
+				C0D1E2F3A4B5C611 /* DistortionControlView.swift in Sources */,
+				C0D1E2F3A4B5C613 /* NoiseGateControlView.swift in Sources */,
+				C0D1E2F3A4B5C615 /* PresetListView.swift in Sources */,
+				C1D2E3F4A5B67801 /* HomeView.swift in Sources */,
+				C1D2E3F4A5B67803 /* LibraryView.swift in Sources */,
+				C1D2E3F4A5B67805 /* PlaylistDetailView.swift in Sources */,
+				C1D2E3F4A5B67807 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
