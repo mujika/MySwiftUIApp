@@ -14,10 +14,21 @@ final class RecorderViewModel {
     // MARK: - State
 
     private(set) var isRecording = false
+    private(set) var isPaused = false
     private(set) var hasPermission = false
     private(set) var audioLevel: Float = 0
     private(set) var recordingDuration: TimeInterval = 0
     private(set) var error: AudioError?
+
+    var isMonitoring: Bool {
+        get { recorder.isMonitoringEnabled }
+        set { recorder.isMonitoringEnabled = newValue }
+    }
+
+    var inputGain: Float {
+        get { recorder.inputGain }
+        set { recorder.inputGain = newValue }
+    }
 
     private var recordingURL: URL?
     private var timer: Timer?
@@ -50,10 +61,18 @@ final class RecorderViewModel {
     }
 
     func toggleRecording() {
-        if isRecording {
+        if isRecording || isPaused {
             stopRecording()
         } else {
             startRecording()
+        }
+    }
+
+    func togglePause() {
+        if isPaused {
+            resumeRecording()
+        } else {
+            pauseRecording()
         }
     }
 
@@ -68,6 +87,7 @@ final class RecorderViewModel {
             recordingURL = try recorder.startRecording()
             try levelMonitor.start()
             isRecording = true
+            isPaused = false
             recordingDuration = 0
             error = nil
             startTimer()
@@ -76,11 +96,26 @@ final class RecorderViewModel {
         }
     }
 
+    private func pauseRecording() {
+        recorder.pauseRecording()
+        isPaused = true
+        isRecording = false
+        stopTimer()
+    }
+
+    private func resumeRecording() {
+        recorder.resumeRecording()
+        isPaused = false
+        isRecording = true
+        startTimer()
+    }
+
     private func stopRecording() {
         do {
             _ = try recorder.stopRecording()
             levelMonitor.stop()
             isRecording = false
+            isPaused = false
             audioLevel = 0
             stopTimer()
             recordingURL = nil

@@ -5,8 +5,13 @@ import Foundation
 
 protocol AudioRecorderService {
     var isRecording: Bool { get }
+    var isPaused: Bool { get }
+    var inputGain: Float { get set }
+    var isMonitoringEnabled: Bool { get set }
     func requestPermission() async -> Bool
     func startRecording() throws -> URL
+    func pauseRecording()
+    func resumeRecording()
     func stopRecording() throws -> TimeInterval
 }
 
@@ -14,10 +19,28 @@ protocol AudioRecorderService {
 
 final class AVAudioRecorderService: AudioRecorderService {
     private var recorder: AVAudioRecorder?
-    private var recordingStartTime: Date?
+    private var monitorEngine: AVAudioEngine?
 
-    var isRecording: Bool {
-        recorder?.isRecording ?? false
+    var isRecording: Bool { recorder?.isRecording ?? false }
+    var isPaused: Bool { recorder != nil && !isRecording }
+
+    var inputGain: Float = 1.0 {
+        didSet {
+            let session = AVAudioSession.sharedInstance()
+            if session.isInputGainSettable {
+                try? session.setInputGain(inputGain)
+            }
+        }
+    }
+
+    var isMonitoringEnabled: Bool = false {
+        didSet {
+            if isMonitoringEnabled {
+                startMonitoring()
+            } else {
+                stopMonitoring()
+            }
+        }
     }
 
     func requestPermission() async -> Bool {
@@ -33,6 +56,10 @@ final class AVAudioRecorderService: AudioRecorderService {
         try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .mixWithOthers])
         try session.setActive(true)
 
+        if session.isInputGainSettable {
+            try session.setInputGain(inputGain)
+        }
+
         let url = Self.makeRecordingURL()
         let settings: [String: Any] = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -44,8 +71,15 @@ final class AVAudioRecorderService: AudioRecorderService {
         recorder = try AVAudioRecorder(url: url, settings: settings)
         recorder?.isMeteringEnabled = true
         recorder?.record()
-        recordingStartTime = Date()
         return url
+    }
+
+    func pauseRecording() {
+        recorder?.pause()
+    }
+
+    func resumeRecording() {
+        recorder?.record()
     }
 
     func stopRecording() throws -> TimeInterval {
@@ -55,12 +89,35 @@ final class AVAudioRecorderService: AudioRecorderService {
         let duration = recorder.currentTime
         recorder.stop()
         self.recorder = nil
-        recordingStartTime = nil
+
+        stopMonitoring()
 
         let session = AVAudioSession.sharedInstance()
         try session.setActive(false, options: .notifyOthersOnDeactivation)
 
         return duration
+    }
+
+    // MARK: - Monitoring (hear yourself through speakers)
+
+    private func startMonitoring() {
+        guard monitorEngine == nil else { return }
+        let engine = AVAudioEngine()
+        let input = engine.inputNode
+        let output = engine.mainMixerNode
+        let format = input.outputFormat(forBus: 0)
+        engine.connect(input, to: output, format: format)
+        do {
+            try engine.start()
+            monitorEngine = engine
+        } catch {
+            print("Monitor start failed: \(error)")
+        }
+    }
+
+    private func stopMonitoring() {
+        monitorEngine?.stop()
+        monitorEngine = nil
     }
 
     private static func makeRecordingURL() -> URL {

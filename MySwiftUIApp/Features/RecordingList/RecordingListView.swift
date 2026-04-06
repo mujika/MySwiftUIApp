@@ -7,11 +7,16 @@ struct RecordingListView: View {
 
     var body: some View {
         NavigationStack {
-            Group {
+            VStack(spacing: 0) {
                 if viewModel.isEmpty {
                     emptyState
                 } else {
                     recordingList
+                }
+
+                if viewModel.playingRecordingID != nil {
+                    Divider()
+                    PlaybackControlsView(viewModel: viewModel)
                 }
             }
             .navigationTitle("録音一覧")
@@ -51,6 +56,7 @@ struct RecordingListView: View {
                 RecordingRowView(
                     recording: recording,
                     isPlaying: viewModel.isPlaying(recording),
+                    isCurrent: viewModel.isCurrentRecording(recording),
                     onTogglePlayback: { viewModel.togglePlayback(for: recording) },
                     onShare: {
                         shareItems = viewModel.shareItems(for: recording)

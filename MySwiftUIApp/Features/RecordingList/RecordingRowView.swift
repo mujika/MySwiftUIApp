@@ -3,6 +3,7 @@ import SwiftUI
 struct RecordingRowView: View {
     let recording: Recording
     let isPlaying: Bool
+    let isCurrent: Bool
     let onTogglePlayback: () -> Void
     let onShare: () -> Void
     let onDelete: () -> Void
@@ -15,15 +16,16 @@ struct RecordingRowView: View {
             actionButtons
         }
         .padding(.vertical, 4)
+        .listRowBackground(isCurrent ? Color.blue.opacity(0.06) : nil)
     }
 
     // MARK: - Subviews
 
     private var playButton: some View {
         Button(action: onTogglePlayback) {
-            Image(systemName: isPlaying ? "stop.circle.fill" : "play.circle.fill")
+            Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
                 .font(.title)
-                .foregroundStyle(isPlaying ? .red : .blue)
+                .foregroundStyle(isPlaying ? .orange : .blue)
         }
         .buttonStyle(.plain)
     }
