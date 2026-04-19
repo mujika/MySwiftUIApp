@@ -10,6 +10,8 @@ final class RecorderViewModel {
     private let recorder: AudioRecorderService
     private let levelMonitor: AudioLevelMonitor
     private let repository: RecordingRepository
+    private let spectrogram: SpectrogramService
+    private let motionControl: MotionControlService
 
     // MARK: - State
 
@@ -19,6 +21,17 @@ final class RecorderViewModel {
     private(set) var audioLevel: Float = 0
     private(set) var recordingDuration: TimeInterval = 0
     private(set) var error: AudioError?
+
+    // Spectrogram
+    private(set) var frequencyBins: [Float] = []
+    var isSpectrogramVisible = true
+
+    // Motion
+    private(set) var motionPitch: Double = 0
+    private(set) var motionRoll: Double = 0
+    private(set) var isMotionActive = false
+
+    var isMotionAvailable: Bool { motionControl.isAvailable }
 
     var isMonitoring: Bool {
         get { recorder.isMonitoringEnabled }
@@ -44,11 +57,21 @@ final class RecorderViewModel {
     init(
         recorder: AudioRecorderService,
         levelMonitor: AudioLevelMonitor,
-        repository: RecordingRepository
+        repository: RecordingRepository,
+        spectrogram: SpectrogramService,
+        motionControl: MotionControlService
     ) {
         self.recorder = recorder
         self.levelMonitor = levelMonitor
         self.repository = repository
+        self.spectrogram = spectrogram
+        self.motionControl = motionControl
+
+        motionControl.onShake = { [weak self] in
+            Task { @MainActor [weak self] in
+                self?.toggleRecording()
+            }
+        }
     }
 
     // MARK: - Actions
@@ -69,16 +92,20 @@ final class RecorderViewModel {
     }
 
     func togglePause() {
-        if isPaused {
-            resumeRecording()
+        if isPaused { resumeRecording() } else { pauseRecording() }
+    }
+
+    func toggleMotion() {
+        if isMotionActive {
+            motionControl.stop()
+            isMotionActive = false
         } else {
-            pauseRecording()
+            motionControl.start()
+            isMotionActive = true
         }
     }
 
-    func dismissError() {
-        error = nil
-    }
+    func dismissError() { error = nil }
 
     // MARK: - Private
 
@@ -86,6 +113,7 @@ final class RecorderViewModel {
         do {
             recordingURL = try recorder.startRecording()
             try levelMonitor.start()
+            try spectrogram.start()
             isRecording = true
             isPaused = false
             recordingDuration = 0
@@ -114,9 +142,11 @@ final class RecorderViewModel {
         do {
             _ = try recorder.stopRecording()
             levelMonitor.stop()
+            spectrogram.stop()
             isRecording = false
             isPaused = false
             audioLevel = 0
+            frequencyBins = []
             stopTimer()
             recordingURL = nil
         } catch {
@@ -125,11 +155,16 @@ final class RecorderViewModel {
     }
 
     private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
             Task { @MainActor [weak self] in
                 guard let self, self.isRecording else { return }
-                self.recordingDuration += 0.1
+                self.recordingDuration += 0.05
                 self.audioLevel = self.levelMonitor.currentLevel
+                self.frequencyBins = self.spectrogram.frequencyBins
+                if self.isMotionActive {
+                    self.motionPitch = self.motionControl.pitch
+                    self.motionRoll = self.motionControl.roll
+                }
             }
         }
     }

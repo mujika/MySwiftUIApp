@@ -4,19 +4,31 @@ struct RecorderView: View {
     @Bindable var viewModel: RecorderViewModel
 
     var body: some View {
-        VStack(spacing: 20) {
-            Spacer()
+        ScrollView {
+            VStack(spacing: 20) {
+                statusSection
+                timerSection
+                recordButtons
+                AudioVisualizerView(level: viewModel.audioLevel)
 
-            statusSection
-            timerSection
-            recordButtons
-            AudioVisualizerView(level: viewModel.audioLevel)
-            gainAndMonitoring
-            permissionWarning
+                // Spectrogram
+                if viewModel.isSpectrogramVisible && viewModel.isRecording {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("スペクトログラム")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        SpectrogramView(bins: viewModel.frequencyBins)
+                            .frame(height: 100)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+                    .padding(.horizontal)
+                }
 
-            Spacer()
+                gainAndMonitoring
+                permissionWarning
+            }
+            .padding(.vertical)
         }
-        .padding()
         .task {
             await viewModel.requestPermission()
         }
@@ -56,7 +68,6 @@ struct RecorderView: View {
 
     private var recordButtons: some View {
         HStack(spacing: 24) {
-            // Pause/Resume button (only during recording)
             if viewModel.isRecording || viewModel.isPaused {
                 Button(action: { viewModel.togglePause() }) {
                     Image(systemName: viewModel.isPaused ? "play.fill" : "pause.fill")
@@ -67,7 +78,6 @@ struct RecorderView: View {
                 }
             }
 
-            // Main Record/Stop button
             Button(action: { viewModel.toggleRecording() }) {
                 Circle()
                     .fill(viewModel.isRecording || viewModel.isPaused ? Color.red : Color.blue)
@@ -86,12 +96,22 @@ struct RecorderView: View {
                     .shadow(color: viewModel.isRecording ? .red.opacity(0.4) : .blue.opacity(0.3), radius: 8)
             }
             .disabled(!viewModel.hasPermission)
+
+            // Motion toggle
+            if viewModel.isMotionAvailable {
+                Button(action: { viewModel.toggleMotion() }) {
+                    Image(systemName: "gyroscope")
+                        .font(.title2)
+                        .foregroundStyle(.white)
+                        .frame(width: 50, height: 50)
+                        .background(viewModel.isMotionActive ? Color.green : Color.gray, in: Circle())
+                }
+            }
         }
     }
 
     private var gainAndMonitoring: some View {
         VStack(spacing: 12) {
-            // Input Gain
             HStack {
                 Image(systemName: "speaker.wave.1")
                     .foregroundStyle(.secondary)
@@ -108,12 +128,19 @@ struct RecorderView: View {
                     .frame(width: 40)
             }
 
-            // Monitoring toggle
-            Toggle(isOn: .init(
-                get: { viewModel.isMonitoring },
-                set: { viewModel.isMonitoring = $0 }
-            )) {
-                Label("モニタリング", systemImage: "headphones")
+            HStack {
+                Toggle(isOn: .init(
+                    get: { viewModel.isMonitoring },
+                    set: { viewModel.isMonitoring = $0 }
+                )) {
+                    Label("モニタリング", systemImage: "headphones")
+                        .font(.subheadline)
+                }
+                .tint(.blue)
+            }
+
+            Toggle(isOn: $viewModel.isSpectrogramVisible) {
+                Label("スペクトログラム", systemImage: "waveform.path.ecg")
                     .font(.subheadline)
             }
             .tint(.blue)
@@ -129,8 +156,6 @@ struct RecorderView: View {
                 .foregroundStyle(.red)
         }
     }
-
-    // MARK: - Helpers
 
     private var statusColor: Color {
         if viewModel.isRecording { return .red }

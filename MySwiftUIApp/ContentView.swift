@@ -1,20 +1,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    // MARK: - Dependencies (injected)
-
-    private let recorder: AudioRecorderService
-    private let levelMonitor: AudioLevelMonitor
-    private let player: AudioPlayerService
-    private let repository: RecordingRepository
-    private let pitchDetector: PitchDetectorService
-    private let metronome: MetronomeService
-    private let effects: AudioEffectsService
-    private let mixer: MultiTrackMixerService
-    private let waveformAnalyzer: WaveformAnalyzerService
-    private let exporter: AudioExporterService
-    private let projectRepo: ProjectRepository
-
     // MARK: - ViewModels
 
     @State private var recorderVM: RecorderViewModel
@@ -36,22 +22,14 @@ struct ContentView: View {
         mixer: MultiTrackMixerService,
         waveformAnalyzer: WaveformAnalyzerService,
         exporter: AudioExporterService,
-        projectRepo: ProjectRepository
+        projectRepo: ProjectRepository,
+        spectrogram: SpectrogramService,
+        motionControl: MotionControlService
     ) {
-        self.recorder = recorder
-        self.levelMonitor = levelMonitor
-        self.player = player
-        self.repository = repository
-        self.pitchDetector = pitchDetector
-        self.metronome = metronome
-        self.effects = effects
-        self.mixer = mixer
-        self.waveformAnalyzer = waveformAnalyzer
-        self.exporter = exporter
-        self.projectRepo = projectRepo
-
         _recorderVM = State(initialValue: RecorderViewModel(
-            recorder: recorder, levelMonitor: levelMonitor, repository: repository
+            recorder: recorder, levelMonitor: levelMonitor,
+            repository: repository, spectrogram: spectrogram,
+            motionControl: motionControl
         ))
         _listVM = State(initialValue: RecordingListViewModel(
             repository: repository, player: player

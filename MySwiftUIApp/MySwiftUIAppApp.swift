@@ -3,9 +3,8 @@ import SwiftUI
 @main
 struct MySwiftUIAppApp: App {
     // MARK: - Composition Root
-    // すべての依存関係をここで1箇所だけ組み立てる
 
-    // Core Audio Services
+    // Core Audio
     private let recorder: AudioRecorderService = AVAudioRecorderService()
     private let levelMonitor: AudioLevelMonitor = AVAudioLevelMonitor()
     private let player: AudioPlayerService = AVAudioPlayerService()
@@ -15,6 +14,10 @@ struct MySwiftUIAppApp: App {
     private let mixer: MultiTrackMixerService = AVMultiTrackMixer()
     private let waveformAnalyzer: WaveformAnalyzerService = AVWaveformAnalyzer()
     private let exporter: AudioExporterService = AVAudioExporter()
+    private let spectrogram: SpectrogramService = AccelerateSpectrogram()
+
+    // Motion
+    private let motionControl: MotionControlService = CMMotionController()
 
     // Storage
     private let repository: RecordingRepository = FileSystemRecordingRepository()
@@ -33,7 +36,9 @@ struct MySwiftUIAppApp: App {
                 mixer: mixer,
                 waveformAnalyzer: waveformAnalyzer,
                 exporter: exporter,
-                projectRepo: projectRepo
+                projectRepo: projectRepo,
+                spectrogram: spectrogram,
+                motionControl: motionControl
             )
         }
     }
